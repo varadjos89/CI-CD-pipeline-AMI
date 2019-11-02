@@ -45,7 +45,16 @@
                 "sudo sh -c 'echo JAVA_OPTS=\"-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xmx512m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC\" >> /usr/share/tomcat/conf/tomcat.conf'",
                 "sudo yum install -y tomcat-webapps tomcat-admin-webapps",
                 "sudo systemctl start tomcat",
-                "sudo systemctl enable tomcat"
+                "sudo systemctl enable tomcat",
+                "sudo yum update",
+                "sudo yum install ruby -y",
+                "sudo yum install wget -y",
+                "cd /home/centos",
+                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
+                "chmod +x ./install",
+                "sudo ./install auto",
+                "sudo service codedeploy-agent start",
+                "sudo service codedeploy-agent status"
             ]
         }
     ]
