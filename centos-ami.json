@@ -30,34 +30,10 @@
         }
     ],
     "provisioners": [
-        {
-            "type": "shell",
-            "environment_vars": [
-                "FOO=foo"
-            ],
-            "inline": [
-                "sudo yum clean all",
-                "sudo yum update -y",
-                "sudo yum install -y httpd",
-                "sudo systemctl start httpd",
-                "sudo systemctl enable httpd",
-                "sudo yum install wget",
-                "wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz",
-                "sudo tar -zxpvf apache-tomcat-9.0.27.tar.gz -C /opt/",
-                "cd /opt/",
-                "sudo mv apache-tomcat-9.0.27 tomcat",
-                "echo 'export CATALINA_HOME='/opt/tomcat/' >> ~/.bashrc'",
-                "source ~/.bashrc",
-                "sudo yum update",
-                "sudo yum install ruby -y",
-                "sudo yum install wget -y",
-                "cd /home/centos",
-                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
-                "chmod +x ./install",
-                "sudo ./install auto",
-                "sudo service codedeploy-agent start",
-                "sudo service codedeploy-agent status"
-            ]
-        }
+        {   "type": "shell",
+      "environment_vars": [
+      ],
+      "scripts": "install.sh"
+    }
     ]
 }
